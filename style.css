@@ -86,4 +86,13 @@ input{
     border: none;
     border-radius: 4px;
 }
+#messageBox {
+    margin: 10px 0;
+    font-weight: bold;
+}
+.requirements{
+    display: flex;
+    flex-direction: column;
+    font-size:10px ;
+}
 

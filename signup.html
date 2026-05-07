@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup page</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <span>SL</span>
+        </div>
+
+    <nav>
+        <ul>
+            <li><a href="./signup.html">SIGNUP</a></li>
+            <li><a href="./signin.html">SIGNIN</a></li>
+        </ul>
+    </nav>
+    </header>
+       <main>
+        <section>
+ <div class="title">
+            <h4>sigup here</h4>
+        </div>
+        
+        <form action="./connect.php" method="post">
+            <input type="hidden" name="action" value="signup">
+            <div class="field">
+                <label for="">username</label>
+                <input type="text"required name="username">
+            </div>
+            <div class="field">
+                <label for="">Email</label>
+                <input type="email" required name="email">
+            </div>
+              
+            <div class="field">
+    <label for="password">Password</label>
+    <input type="password" required name="password" id="password">
+
+    <ul class="requirements">
+        <li id="length">❌ 8–12 characters</li>
+        <li id="uppercase">❌ At least one uppercase letter</li>
+        <li id="lowercase">❌ At least one lowercase letter</li>
+        <li id="special">❌ At least one special character</li>
+    </ul>
+</div>
+
+    
+            <div class="field">
+                <label for="">repeat password</label>
+                <input type="password"  required name="confirm_password" id="confirm_password">
+                 <small id="matchMessage"></small>
+            </div>
+
+            <div id="messageBox"></div>
+
+            <div class="btns">
+                <button type="reset" id="cancelBtn" class="cancel">cancel</button>
+                <button type="submit" class="submit"  id="submitBtn" disabled>submit</button>
+            </div>
+        </form>
+    
+        </section>
+       </main>
+
+       <script src="signup.js"></script>
+       
+</body>
+</html>
