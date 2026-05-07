@@ -20,6 +20,9 @@
 <main>
     <section>
 
+        <!-- Error/Success Message Display -->
+        <div id="messageBox" style="display:none; margin: 15px 0; padding: 10px; border-radius: 4px; text-align: center;"></div>
+
         <form action="connect.php" method="POST">
 
             <!-- VERY IMPORTANT -->
@@ -44,6 +47,29 @@
 
     </section>
 </main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get('error');
+        const signup = params.get('signup');
+        const messageBox = document.getElementById('messageBox');
+        
+        if (error) {
+            messageBox.textContent = '❌ ' + decodeURIComponent(error);
+            messageBox.style.color = 'red';
+            messageBox.style.backgroundColor = '#ffe6e6';
+            messageBox.style.display = 'block';
+            window.history.replaceState({}, document.title, './signin.html');
+        } else if (signup === 'success') {
+            messageBox.textContent = '✔ Account created successfully! Please sign in.';
+            messageBox.style.color = 'green';
+            messageBox.style.backgroundColor = '#e6ffe6';
+            messageBox.style.display = 'block';
+            window.history.replaceState({}, document.title, './signin.html');
+        }
+    });
+</script>
 
 </body>
 </html>

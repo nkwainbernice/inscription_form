@@ -1,5 +1,24 @@
 
 // =====================
+// CHECK FOR URL ERRORS
+// =====================
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const error = params.get('error');
+    
+    if (error) {
+        const messageBox = document.getElementById('messageBox');
+        messageBox.textContent = '❌ ' + decodeURIComponent(error);
+        messageBox.style.color = 'red';
+        messageBox.style.backgroundColor = '#ffe6e6';
+        messageBox.style.display = 'block';
+        
+        // Clear the URL to remove the error parameter
+        window.history.replaceState({}, document.title, './signup.html');
+    }
+});
+
+// =====================
 // ELEMENTS
 // =====================
 const password = document.getElementById("password");
@@ -15,6 +34,7 @@ const lowerEl = document.getElementById("lowercase");
 const specialEl = document.getElementById("special");
 
 const form = document.querySelector("form");
+
 
 
 // =====================
